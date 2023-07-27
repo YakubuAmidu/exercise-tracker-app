@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+logger = require('morgan');
 const mongoose = require('mongoose');
 
 require('dotenv').config();
@@ -8,6 +9,7 @@ const app = express();
 const port = process.env.PORT || 8484;
 
 app.use(cors());
+app.use(logger('combined'));
 app.use(express.json());
 
 const exercisesRouter = require('./routes/exercises');
