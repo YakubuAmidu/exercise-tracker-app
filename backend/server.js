@@ -10,8 +10,8 @@ const port = process.env.PORT || 8484;
 app.use(cors());
 app.use(express.json());
 
-const exercisesRouter = require('./routes/users');
-const usersRouter = require('./routes/exercises');
+const exercisesRouter = require('./routes/exercises');
+const usersRouter = require('./routes/users');
 
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
