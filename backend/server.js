@@ -20,7 +20,7 @@ mongoose.connect(process.env.ATLAS_URI)
         .then(() => {
             // Listen for request
             app.listen(port, () => {
-              console.log(`Connected to mongodb database, and listening on port ${port}`);
+              console.log(`Connected to mongodb database, and app listening on port ${port}`);
             });
         }).catch((err) => {
             console.log('Error: ' + err.message);
