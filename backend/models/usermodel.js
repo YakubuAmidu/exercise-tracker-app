@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const userSchema = new Schema({
     username: {
         type: String,
@@ -8,7 +10,7 @@ const userSchema = new Schema({
     }
 },
 {
-    timestamp: true
+    timestamps: true
 });
 
 const User = mongoose.model('User', userSchema);
