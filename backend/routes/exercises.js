@@ -39,7 +39,7 @@ router.route('/:id').delete((req, res) => {
             .catch((err) => res.status(400).json("Error: " + err.message));
 });
 
-router.route('/update/:id').post((req, res) => {
+router.route('/update/:id').patch((req, res) => {
     Exercise.findById(req.params.id)
             .then(exercise => {
                 exercise.username = req.body.username;
@@ -50,9 +50,7 @@ router.route('/update/:id').post((req, res) => {
                  exercise.save()
                     .then(() => res.json('Exercise updated...😊'))
                     .catch((err) => res.status(400).json("Error: " + err.message));
-            })
-
-            .catch((err) => res.status(400).json("Error: " + err.message));
+            });
 });
 
 module.exports = router;
