@@ -8,6 +8,7 @@ export default class CreateExercise extends Component {
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeDuration = this.onChangeDuration.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             username: '',
@@ -16,6 +17,13 @@ export default class CreateExercise extends Component {
             date: new Date(),
             users: [],
         }
+    }
+
+    componentDidMount(){
+        this.setState({
+            users: ['test user'],
+            username: 'test uer'
+        })
     }
 
     onChangeUsername(e){
@@ -60,7 +68,26 @@ export default class CreateExercise extends Component {
     render(){
         return (
         <div>
-            <p>You are on the create exercise component</p>
+            <h3>Create New Exercise Log</h3>
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group">
+                <label>Username: </label>
+                <select ref="userInput" 
+                required className='form-control'
+                value={this.state.username}
+                onChange={this.onChangeUsername}>
+                    {
+                        this.state.users.map(function(user){
+                          return <option key={user} value={user}>
+                              {
+                                user
+                              }
+                          </option>
+                        })
+                    }
+                </select>
+              </div>
+            </form>
         </div>
         );
     }
