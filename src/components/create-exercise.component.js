@@ -4,7 +4,7 @@ export default class CreateExercise extends Component {
     render(){
         return (
         <div>
-            <p>You are on the exercise component</p>
+            <p>You are on the create exercise component</p>
         </div>
         );
     }
