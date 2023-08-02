@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import DatePicker from "react-datepicker";
+
 export default class CreateExercise extends Component {
     constructor(props){
         super(props);
@@ -103,7 +105,28 @@ export default class CreateExercise extends Component {
               </div>
 
               <div className="form-group">
-                
+                <label>Duration: (in minuets): </label>
+                <input 
+                type="text" 
+                required
+                className="form-control"
+                value={this.state.duration}
+                onChange={this.onChangeDuration}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Date: </label>
+                <div>
+                    <DatePicker 
+                    selected={this.state.date} 
+                    onChange={this.onChangeDate}
+                    />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <input type="submit" value="Create exercise log" className="btn btn-primary" />
               </div>
             </form>
         </div>
