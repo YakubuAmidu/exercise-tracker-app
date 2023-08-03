@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import DatePicker from "react-datepicker";
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateExercise extends Component {
     constructor(props){
@@ -53,7 +54,7 @@ export default class CreateExercise extends Component {
     }
 
     onSubmit(e){
-        e.preventDefault();
+         e.preventDefault();
 
         const exercise = {
             username: this.state.username,
@@ -62,7 +63,7 @@ export default class CreateExercise extends Component {
             date: this.state.date
         }
 
-        console.log('Exercise: ' + exercise);
+        console.log(exercise);
 
         window.location = '/';
     }
@@ -98,7 +99,8 @@ export default class CreateExercise extends Component {
                 <label>Description: </label>
                 <input 
                 type="text" 
-                required className='form-control' 
+                required 
+                className='form-control' 
                 value={this.state.description}
                 onChange={this.onChangeDescription}
                 />
