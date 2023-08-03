@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 export default class ExerciseList extends Component {
@@ -21,6 +22,13 @@ export default class ExerciseList extends Component {
                 })
               })
     }
+
+    deleteExercise(id){
+        axios.delete('http://localhost:5000/exercises' + id)
+             .then((response) => console.log(response.data));
+                this.setState({ exercises: this.state.exercises.filter(el => el._id !== id )});
+    }
+
     render(){
         return (
             <div>
