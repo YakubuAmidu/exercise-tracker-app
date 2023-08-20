@@ -13,10 +13,9 @@ const Exercise = props => (
         <td>
             <Link to={'/edit/' + props.exercise._id}>Edit</Link> 
             | 
-            <a href="https://www.google.com" 
-            onClick={() => { props.deleteExercise(props.exercise._id)}}
-            >Delete
-            </a>
+            <Link href="#" 
+            onClick={() => { props.deleteExercise(props.exercise._id)}}>Delete
+            </Link>
         </td>
     </tr>
 )
