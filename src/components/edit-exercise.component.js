@@ -90,7 +90,33 @@ export default class EditExercise extends Component {
     render(){
         return (
             <div>
-                <p>You are on the edit exercise component</p>
+                <h3>Edit exercise log</h3>
+                <form onSubmit={this.onSubmit}>
+                 <div className='form-group'>
+                    <label>Username: </label>
+                    <select 
+                    ref="userInput" 
+                    required 
+                    className="form-control" 
+                    value={this.state.username}
+                    onChange={this.state.onChangeUsername}>
+                        {
+                            this.state.users.map(function(user){
+                                return (
+                                    <option
+                                    key={user}
+                                    value={user}
+                                    >
+                                     {
+                                        user
+                                     }
+                                    </option>
+                                )
+                            })
+                        }
+                    </select>
+                 </div>
+                </form>
             </div>
         )
     }
